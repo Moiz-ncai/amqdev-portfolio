@@ -136,7 +136,7 @@ export default function Home() {
           <div className="mb-6 h-12 relative">
             {/* "I am" - shows after ABDUL MOIZ QARNI animation completes and stays visible permanently */}
             <div 
-              className="text-white text-2xl md:text-3xl font-bold tracking-wide transition-opacity duration-500 absolute top-0 left-1/2 transform -translate-x-1/2"
+              className="text-white text-sm sm:text-2xl md:text-3xl font-bold tracking-wide transition-opacity duration-500 absolute top-0 left-1/2 transform -translate-x-1/2"
               style={{
                 opacity: (phase === 'pause' || isCollapsing || isFinal || isLooping) ? 1 : 0
               }}
@@ -145,7 +145,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex items-center justify-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold flex-wrap sm:flex-nowrap px-2">
+          <div className="flex items-center justify-center text-2xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold flex-wrap sm:flex-nowrap px-2">
             {/* A */}
             <span 
               className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent ease-out"
