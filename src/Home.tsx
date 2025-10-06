@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { ChevronDown } from 'lucide-react';
 
 export default function Home() {
   const [phase, setPhase] = useState('initial'); // initial, devFade, expanding, typing, pause, collapsing, final, looping
