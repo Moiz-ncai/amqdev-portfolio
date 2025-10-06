@@ -39,6 +39,7 @@ const ProjectDetails = () => {
       images: [],
       liveUrl: '',
       githubUrl: '',
+      architecturePath: '/projects/shikayat/architecture',
     },
     stonksai: {
       title: 'StonksAI',
@@ -174,6 +175,21 @@ const ProjectDetails = () => {
             </div>
           </div>
         </motion.div>
+
+        {/* Architecture Shortcut for Shikayat */}
+        {project.architecturePath && (
+          <div className="mb-8">
+            <Link to={project.architecturePath}>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-full"
+              >
+                View System Architecture
+              </motion.button>
+            </Link>
+          </div>
+        )}
 
         {/* Project Hero Image/Visual */}
         <motion.div
