@@ -1,4 +1,3 @@
-import React from 'react';
 import { FileText, Brain, Database, Shield, Users, Building2, MapPin, TrendingUp, BarChart3 } from 'lucide-react';
 
 export default function SystemArchitecture() {
