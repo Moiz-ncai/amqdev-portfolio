@@ -1,9 +1,15 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
+import SystemArchitecture from './SystemArchitecture';
 
 const ProjectDetails = () => {
   const { id } = useParams<{ id: string }>();
+
+  // If Shikayat, show the architecture/details page directly
+  if (id === 'shikayat') {
+    return <SystemArchitecture />;
+  }
 
   // Project data with empty details for you to fill later
   const projectsData: Record<string, any> = {
@@ -23,23 +29,6 @@ const ProjectDetails = () => {
       images: [],
       liveUrl: '',
       githubUrl: '',
-    },
-    shikayat: {
-      title: 'Shikayat',
-      subtitle: 'Comprehensive Complaint Management System',
-      gradient: 'from-purple-500 to-pink-500',
-      icon: '📢',
-      status: 'Completed',
-      year: '2024',
-      overview: '',
-      features: [],
-      technologies: [],
-      challenges: '',
-      results: '',
-      images: [],
-      liveUrl: '',
-      githubUrl: '',
-      architecturePath: '/projects/shikayat/architecture',
     },
     stonksai: {
       title: 'StonksAI',
@@ -176,21 +165,6 @@ const ProjectDetails = () => {
           </div>
         </motion.div>
 
-        {/* Architecture Shortcut for Shikayat */}
-        {project.architecturePath && (
-          <div className="mb-8">
-            <Link to={project.architecturePath}>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-full"
-              >
-                View System Architecture
-              </motion.button>
-            </Link>
-          </div>
-        )}
-
         {/* Project Hero Image/Visual */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -202,7 +176,7 @@ const ProjectDetails = () => {
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
         </motion.div>
 
-        {/* Content Sections - Empty for now */}
+        {/* Content Sections - Placeholder for non-Shikayat */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
