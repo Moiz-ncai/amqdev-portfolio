@@ -310,17 +310,7 @@ export default function Home() {
           </button>
         </div>
 
-        {/* Scroll Indicator */}
-        <div 
-          className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-500 ${
-            (isFinal || isLooping) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}
-        >
-          <div className="flex flex-col items-center gap-2 text-slate-400 animate-bounce">
-            <span className="text-sm">Scroll to explore</span>
-            <ChevronDown className="w-6 h-6" />
-          </div>
-        </div>
+        
       </div>
 
       {/* Decorative grid overlay */}
