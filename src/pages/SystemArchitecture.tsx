@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Users, Building, MapPin, BarChart3, Shield, Zap, Globe } from 'lucide-react';
+import { ArrowLeft, Users, Building, MapPin, BarChart3, Shield, Zap } from 'lucide-react';
 
 const SystemArchitecture = () => {
   return (
