@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
   const [phase, setPhase] = useState('initial'); // initial, devFade, expanding, typing, pause, collapsing, final, looping
@@ -132,20 +132,8 @@ export default function Home() {
       <div className="relative z-10 text-center px-4">
         {/* Name Animation Container */}
         <div className="mb-12">
-          {/* Top text labels */}
-          <div className="mb-6 h-12 relative">
-            {/* "I am" - shows after ABDUL MOIZ QARNI animation completes and stays visible permanently */}
-            <div 
-              className="text-white text-2xl md:text-3xl font-bold tracking-wide transition-opacity duration-500 absolute top-0 left-1/2 transform -translate-x-1/2"
-              style={{
-                opacity: (phase === 'pause' || isCollapsing || isFinal || isLooping) ? 1 : 0
-              }}
-            >
-              I am
-            </div>
-          </div>
 
-          <div className="flex items-center justify-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold flex-wrap sm:flex-nowrap px-2">
+          <div className="flex items-center justify-center text-2xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold flex-wrap sm:flex-nowrap px-2">
             {/* A */}
             <span 
               className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent ease-out"
@@ -312,27 +300,19 @@ export default function Home() {
             showCTA ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50">
-            <span className="relative z-10">View My Work</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          </button>
+          <Link to="/projects">
+            <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50">
+              <span className="relative z-10">View My Work</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </button>
+          </Link>
           
           <button className="px-8 py-4 border-2 border-slate-400 text-slate-300 font-semibold rounded-full hover:bg-slate-800 hover:border-slate-300 transition-all duration-300 hover:scale-105">
             Get In Touch
           </button>
         </div>
 
-        {/* Scroll Indicator */}
-        <div 
-          className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-500 ${
-            (isFinal || isLooping) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}
-        >
-          <div className="flex flex-col items-center gap-2 text-slate-400 animate-bounce">
-            <span className="text-sm">Scroll to explore</span>
-            <ChevronDown className="w-6 h-6" />
-          </div>
-        </div>
+        
       </div>
 
       {/* Decorative grid overlay */}
