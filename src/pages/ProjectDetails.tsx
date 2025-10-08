@@ -244,7 +244,7 @@ const ProjectDetails = () => {
                 <span>Key Features</span>
               </h2>
               <div className="grid md:grid-cols-2 gap-4">
-                {project.features.map((feature, index) => (
+                {project.features.map((feature: string, index: number) => (
                   <div key={index} className="flex items-start gap-3 p-4 bg-slate-700/30 rounded-lg">
                     <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2 flex-shrink-0"></div>
                     <p className="text-slate-300">{feature}</p>
@@ -267,7 +267,7 @@ const ProjectDetails = () => {
                 <span>Technologies Used</span>
               </h2>
               <div className="flex flex-wrap gap-3">
-                {project.technologies.map((tech, index) => (
+                {project.technologies.map((tech: string, index: number) => (
                   <span key={index} className="px-4 py-2 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 rounded-full border border-cyan-500/30 text-sm font-medium">
                     {tech}
                   </span>
