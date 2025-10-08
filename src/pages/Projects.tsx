@@ -20,10 +20,11 @@ const Projects = () => {
     {
       id: 'shikayat',
       title: 'Shikayat',
-      description: 'Comprehensive complaint management system for efficient issue tracking and resolution.',
+      description: 'AI-powered citizen complaint intelligence system for transparent government-citizen communication.',
       gradient: 'from-purple-500 to-pink-500',
       icon: '📢',
       status: 'Completed',
+      logo: true, // Flag to show custom logo
     },
     {
       id: 'stonksai',
@@ -135,9 +136,18 @@ const Projects = () => {
 
                   {/* Icon/Visual */}
                   <div className={`relative h-48 bg-gradient-to-br ${project.gradient} opacity-20 flex items-center justify-center`}>
-                    <div className="text-8xl opacity-50 group-hover:scale-110 transition-transform duration-300">
-                      {project.icon}
-                    </div>
+                    {project.logo ? (
+                      <div className="logo scale-150 group-hover:scale-[1.6] transition-transform duration-300">
+                        <div className="logo-icon">
+                          <span>ش</span>
+                        </div>
+                        <span className="logo-text">Shikayat</span>
+                      </div>
+                    ) : (
+                      <div className="text-8xl opacity-50 group-hover:scale-110 transition-transform duration-300">
+                        {project.icon}
+                      </div>
+                    )}
                   </div>
 
                   {/* Content */}
