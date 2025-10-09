@@ -1,9 +1,15 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
+import SystemArchitecture from './SystemArchitecture';
 
 const ProjectDetails = () => {
   const { id } = useParams<{ id: string }>();
+
+  // If Shikayat, show the architecture/details page directly
+  if (id === 'shikayat') {
+    return <SystemArchitecture />;
+  }
 
   // Project data with empty details for you to fill later
   const projectsData: Record<string, any> = {
