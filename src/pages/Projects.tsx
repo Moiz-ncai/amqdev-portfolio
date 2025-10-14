@@ -3,61 +3,13 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { projectsList } from '../data/projects';
 
 const Projects = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
-  const projects = [
-    {
-      id: 'markit',
-      title: 'MarkIT',
-      description: 'Advanced marking and grading platform with AI-powered assessment capabilities.',
-      gradient: 'from-blue-500 to-cyan-500',
-      icon: '📝',
-      status: 'Completed',
-    },
-    {
-      id: 'shikayat',
-      title: 'Shikayat',
-      description: 'Comprehensive complaint management system for efficient issue tracking and resolution.',
-      gradient: 'from-purple-500 to-pink-500',
-      icon: '📢',
-      status: 'Completed',
-    },
-    {
-      id: 'stonksai',
-      title: 'StonksAI',
-      description: 'AI-powered stock market analysis and prediction platform for informed trading decisions.',
-      gradient: 'from-green-500 to-emerald-500',
-      icon: '📈',
-      status: 'In Progress',
-    },
-    {
-      id: 'spotterai',
-      title: 'SpotterAI',
-      description: 'Intelligent object detection and tracking system using computer vision and deep learning.',
-      gradient: 'from-orange-500 to-red-500',
-      icon: '🎯',
-      status: 'Completed',
-    },
-    {
-      id: 'histree',
-      title: 'Histree',
-      description: 'Interactive historical data visualization platform for exploring and analyzing historical events.',
-      gradient: 'from-indigo-500 to-blue-500',
-      icon: '🌳',
-      status: 'In Progress',
-    },
-    {
-      id: 'parkit',
-      title: 'ParkIT',
-      description: 'Smart parking management solution with real-time availability tracking and reservation system.',
-      gradient: 'from-teal-500 to-cyan-500',
-      icon: '🅿️',
-      status: 'Completed',
-    },
-  ];
+  const projects = projectsList;
 
   const containerVariants = {
     hidden: { opacity: 0 },

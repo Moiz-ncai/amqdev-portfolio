@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
 import SystemArchitecture from './SystemArchitecture';
+import { projectsData } from '../data/projects';
 
 const ProjectDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -11,7 +12,11 @@ const ProjectDetails = () => {
     return <SystemArchitecture />;
   }
 
-  // Project data with empty details for you to fill later
+  // Get project from centralized data
+  const project = id ? projectsData[id] : null;
+
+  // OLD INLINE DATA - REMOVED FOR CLEAN ARCHITECTURE
+  /*
   const projectsData: Record<string, any> = {
     markit: {
       title: 'MarkIT',
@@ -116,8 +121,7 @@ const ProjectDetails = () => {
       githubUrl: '',
     },
   };
-
-  const project = id ? projectsData[id] : null;
+  */
 
   if (!project) {
     return (
