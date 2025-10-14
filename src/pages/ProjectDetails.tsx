@@ -197,38 +197,121 @@ const ProjectDetails = () => {
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
         </motion.div>
 
-        {/* Content Sections - Placeholder for non-Shikayat */}
+        {/* Content Sections */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           className="space-y-8"
         >
-          {/* Placeholder Message */}
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 text-center">
-            <h2 className="text-2xl font-bold text-white mb-4">Project Details Coming Soon</h2>
-            <p className="text-slate-300 mb-6">
-              Detailed information about {project.title} will be added here, including:
-            </p>
-            <div className="grid md:grid-cols-2 gap-4 text-left max-w-2xl mx-auto">
-              <div className="bg-slate-700/30 rounded-lg p-4">
-                <h3 className="font-semibold text-cyan-400 mb-2">📋 Project Overview</h3>
-                <p className="text-sm text-slate-300">Comprehensive description and goals</p>
+          {/* Project Overview */}
+          {project.overview && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50"
+            >
+              <h2 className="text-2xl font-bold text-white mb-4">Project Overview</h2>
+              <p className="text-slate-300 leading-relaxed">{project.overview}</p>
+            </motion.div>
+          )}
+
+          {/* Key Features */}
+          {project.features && project.features.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50"
+            >
+              <h2 className="text-2xl font-bold text-white mb-6">Key Features</h2>
+              <div className="grid md:grid-cols-2 gap-4">
+                {project.features.map((feature: string, index: number) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-slate-300 text-sm">{feature}</p>
+                  </div>
+                ))}
               </div>
-              <div className="bg-slate-700/30 rounded-lg p-4">
-                <h3 className="font-semibold text-cyan-400 mb-2">✨ Key Features</h3>
-                <p className="text-sm text-slate-300">Highlighted functionalities</p>
+            </motion.div>
+          )}
+
+          {/* Technologies Used */}
+          {project.technologies && project.technologies.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50"
+            >
+              <h2 className="text-2xl font-bold text-white mb-6">Technologies Used</h2>
+              <div className="flex flex-wrap gap-3">
+                {project.technologies.map((tech: string, index: number) => (
+                  <span
+                    key={index}
+                    className="px-4 py-2 bg-slate-700/50 text-cyan-400 rounded-full text-sm border border-slate-600"
+                  >
+                    {tech}
+                  </span>
+                ))}
               </div>
-              <div className="bg-slate-700/30 rounded-lg p-4">
-                <h3 className="font-semibold text-cyan-400 mb-2">⚙️ Technologies Used</h3>
-                <p className="text-sm text-slate-300">Tech stack and tools</p>
-              </div>
-              <div className="bg-slate-700/30 rounded-lg p-4">
-                <h3 className="font-semibold text-cyan-400 mb-2">🎯 Results & Impact</h3>
-                <p className="text-sm text-slate-300">Achievements and outcomes</p>
+            </motion.div>
+          )}
+
+          {/* Challenges */}
+          {project.challenges && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50"
+            >
+              <h2 className="text-2xl font-bold text-white mb-4">Challenges</h2>
+              <p className="text-slate-300 leading-relaxed">{project.challenges}</p>
+            </motion.div>
+          )}
+
+          {/* Results & Impact */}
+          {project.results && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.9 }}
+              className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50"
+            >
+              <h2 className="text-2xl font-bold text-white mb-4">Results & Impact</h2>
+              <p className="text-slate-300 leading-relaxed">{project.results}</p>
+            </motion.div>
+          )}
+
+          {/* Placeholder for projects without detailed content */}
+          {!project.overview && !project.features?.length && !project.technologies?.length && (
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 text-center">
+              <h2 className="text-2xl font-bold text-white mb-4">Project Details Coming Soon</h2>
+              <p className="text-slate-300 mb-6">
+                Detailed information about {project.title} will be added here, including:
+              </p>
+              <div className="grid md:grid-cols-2 gap-4 text-left max-w-2xl mx-auto">
+                <div className="bg-slate-700/30 rounded-lg p-4">
+                  <h3 className="font-semibold text-cyan-400 mb-2">📋 Project Overview</h3>
+                  <p className="text-sm text-slate-300">Comprehensive description and goals</p>
+                </div>
+                <div className="bg-slate-700/30 rounded-lg p-4">
+                  <h3 className="font-semibold text-cyan-400 mb-2">✨ Key Features</h3>
+                  <p className="text-sm text-slate-300">Highlighted functionalities</p>
+                </div>
+                <div className="bg-slate-700/30 rounded-lg p-4">
+                  <h3 className="font-semibold text-cyan-400 mb-2">⚙️ Technologies Used</h3>
+                  <p className="text-sm text-slate-300">Tech stack and tools</p>
+                </div>
+                <div className="bg-slate-700/30 rounded-lg p-4">
+                  <h3 className="font-semibold text-cyan-400 mb-2">🎯 Results & Impact</h3>
+                  <p className="text-sm text-slate-300">Achievements and outcomes</p>
+                </div>
               </div>
             </div>
-          </div>
+          )}
 
           {/* Links Section (if available) */}
           {(project.liveUrl || project.githubUrl) && (
